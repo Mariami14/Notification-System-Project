@@ -12,4 +12,5 @@ public interface CustomerService {
     boolean deleteCustomer(Long id);
 
     List<Customer> findCustomer();
+
 }

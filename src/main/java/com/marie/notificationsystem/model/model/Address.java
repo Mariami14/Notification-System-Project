@@ -22,7 +22,7 @@ public class Address {
     private boolean active;
 
     @ManyToOne
-    @JoinColumn(name = "system_user_DB")
+    @JoinColumn(name = "system_user_id")
     private SystemUser systemUser;
 
 
