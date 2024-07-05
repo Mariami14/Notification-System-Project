@@ -10,9 +10,7 @@ This project is a Notification System application built with Spring Boot, Spring
 - [Prerequisites](#prerequisites)
 - [Setup](#setup)
 - [Running the Application](#running-the-application)
-- [Endpoints](#endpoints)
-- [Usage](#usage)
-- [License](#license)
+
 
 ## Prerequisites
 
