@@ -5,7 +5,7 @@ This project involves creating a Customer Notification Address Facade System, a 
 
 This project is a Notification System application built with Spring Boot, Spring Data JPA, Elasticsearch, and other technologies. It allows tracking notification statuses, searching and filtering customers, and managing customer notification preferences.
 
-Git Instructions - on this branch there is only readme and on Master's branch the whole application is uploaded
+**Git Instructions - on this branch there is only readme and on Master's branch the whole application is uploaded**
 
 ## Table of Contents
 
