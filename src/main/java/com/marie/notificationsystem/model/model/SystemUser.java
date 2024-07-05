@@ -1,10 +1,7 @@
 package com.marie.notificationsystem.model.model;
 
 import com.marie.notificationsystem.model.repository.Roles;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,32 +12,34 @@ import java.util.Collections;
 
 @Getter
 @Setter
+@ToString
 @EqualsAndHashCode
 @NoArgsConstructor
 @Entity
+@Table(name = "system_user_DB")
 public class SystemUser implements UserDetails {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private String userName;
+    private String firstName;
+    private String lastName;
     private String email;
     private String password;
     @Enumerated(EnumType.STRING)
     private Roles roles;
-    private Boolean locked;
-    private Boolean enabled;
+    private Boolean locked = false;
+    private Boolean enabled = false;
 
     //constructor without id as id is automatically generated for us
-    public SystemUser(String name, String userName, String email, String password, Roles roles, Boolean locked, Boolean enabled) {
-        this.name = name;
-        this.userName = userName;
+    public SystemUser(String firstName, String lastName, String email, String password, Roles roles) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.roles = roles;
-        this.locked = locked;
-        this.enabled = enabled;
+
     }
 
     @Override
@@ -48,6 +47,7 @@ public class SystemUser implements UserDetails {
         SimpleGrantedAuthority authority =
                 new SimpleGrantedAuthority(roles.name());
         return Collections.singletonList(authority);
+        //es gadasaxedia singeltonList
     }
 
     @Override
@@ -55,9 +55,17 @@ public class SystemUser implements UserDetails {
         return password;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+// I use email as username
     @Override
     public String getUsername() {
-        return userName;
+        return email;
     }
 
     @Override

@@ -13,7 +13,6 @@ import java.util.Optional;
 @Repository
 @Transactional(readOnly = true)
 public interface SystemUserRepository extends JpaRepository <SystemUser, Long> {
-
     //generates actual query?
     Optional<SystemUser> findByEmail (String email);
 }

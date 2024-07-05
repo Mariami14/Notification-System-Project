@@ -7,10 +7,11 @@ import com.marie.notificationsystem.model.repository.NotificationPreference;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Customer")
+@Table(name = "customer")
 
 public class Customer {
 
+    //TODO: toststing anotacia, getter anotacia
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
