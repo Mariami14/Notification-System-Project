@@ -24,8 +24,9 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public boolean updateCustomer(Customer customer) {
         Customer oldCustomer = customerRepository.findById(customer.getId()).orElse(null);
-        // aq movifiqro firstName it gavaketot tu davamatot kide
         oldCustomer.setFirstName(customer.getFirstName());
+        oldCustomer.setEmail(customer.getEmail());
+        oldCustomer.setLastName(customer.getLastName());
         return true;
     }
 
