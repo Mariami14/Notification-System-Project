@@ -19,7 +19,6 @@ import java.io.IOException;
 @Component
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
-    //TODO: onceperrequest klasi shegidzlia daaextendo an daaimplementiro filter pirdapir
 
     private final JwtService jwtService;
     private final SystemUserService systemUserService;
@@ -29,8 +28,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             @NonNull HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull FilterChain filterChain)
             throws ServletException, IOException {
 
-        //TODO: request da response igive rols asrulebs, request agzavni monacemebs, response gibrunebs
-        //TODO: filter chain filtrebs idzaxebs
+        //request da response have the same rols, request sends data, response returns
 
         final String authHeader = request.getHeader("Authorization");
         final String jwt;
@@ -46,7 +44,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         if (userEmail != null && SecurityContextHolder.getContext()
             .getAuthentication() == null){ //in case user isn't authenticated- it is null meaning user not connected
             UserDetails userDetails = this.systemUserService.loadUserByUsername(userEmail);
-            //todo aq sheidzleba error daartyas
+            //checked for errors
 
             if (jwtService.isTokenValid(jwt,userDetails)){
                 UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(

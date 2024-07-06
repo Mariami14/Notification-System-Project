@@ -3,15 +3,16 @@ package com.marie.notificationsystem.model.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.marie.notificationsystem.model.repository.NotificationPreference;
+import lombok.ToString;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "customer")
-
+@ToString
 public class Customer {
 
-    //TODO: toststing anotacia, getter anotacia
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
